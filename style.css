@@ -1,3 +1,4 @@
+
 h1
 {
     text-align: center;
@@ -22,7 +23,7 @@ h1
 #search-button
 {
     display:block;
-    margin:10px auto 0;
+    margin:10px auto 10px;
     background-image:linear-gradient(rgba(228, 81, 13, 0.87),rgba(235, 141, 18, 0.719));
     color:white;
     padding:5px 40px;
@@ -33,3 +34,4 @@ h1
 {
     background-color:rgb(255, 81, 0);
 }
+
