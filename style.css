@@ -1,0 +1,35 @@
+h1
+{
+    text-align: center;
+    color:orange;
+    text-transform: uppercase;
+    margin:40px 0 10px 0;
+}
+.phone-text
+{
+    color:black;
+}
+#search-box
+{
+    display:block;
+    border:2px solid gray;
+    border-radius:5px;
+    width:30%;
+    margin:0 auto;
+    text-align:center;
+    
+}
+#search-button
+{
+    display:block;
+    margin:10px auto 0;
+    background-image:linear-gradient(rgba(228, 81, 13, 0.87),rgba(235, 141, 18, 0.719));
+    color:white;
+    padding:5px 40px;
+    border:none;
+    border-radius:10px;
+}
+#search-button:hover
+{
+    background-color:rgb(255, 81, 0);
+}
