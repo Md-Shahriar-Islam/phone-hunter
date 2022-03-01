@@ -7,7 +7,6 @@ const fetching = () => {
         .then(data => showPhone(data.data))
 
 }
-// ----error showing-------
 
 
 // ------------api calling for details-------------
@@ -64,7 +63,6 @@ const phone_details = (data) => {
     // ---------html upload-----------
 
     cardShow.appendChild(divTotal);
-    // console.log(sensors);
 }
 
 const showPhone = (data) => {
@@ -81,7 +79,6 @@ const showPhone = (data) => {
     }
     else {
         const newMobile = data.slice(0, 20);
-        console.log(newMobile[0]);
         const phoneShowCase = document.getElementById('showcase');
         phoneShowCase.textContent = "";
         const cardShow = document.getElementById('card-show');
