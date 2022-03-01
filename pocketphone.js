@@ -4,7 +4,8 @@ const fetching = () => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => showPhone(data.data))
+        .then(data => showPhone(data.data));
+    document.getElementById('search-box').value = "";
 
 }
 
