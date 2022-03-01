@@ -1,12 +1,15 @@
 // -------api calling for showcase-----------
 const fetching = () => {
     const searchText = document.getElementById('search-box').value;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => showPhone(data.data));
+        .then(data => showPhone(data.data))
 
 }
+// ----error showing-------
+
+
 // ------------api calling for details-------------
 const fetch_details = (data) => {
     const url = `https://openapi.programming-hero.com/api/phone/${data}`;
@@ -65,23 +68,40 @@ const phone_details = (data) => {
 }
 
 const showPhone = (data) => {
-    const newMobile = data.slice(0, 20);
-    console.log(newMobile[0]);
-    const phoneShowCase = document.getElementById('showcase');
-    phoneShowCase.textContent = "";
-    newMobile.forEach(mobile => {
-        const div = document.createElement('div');
-        div.classList.add('col')
-        div.innerHTML =
-            `<div class="card">
-            <img src="${mobile.image}" class="card-img-top w-50 pt-3 mx-auto" alt="...">
-            <div class="card-body">
-                <h3 class="card-title text-center">${mobile.brand}</h3>
-                <h4 class="card-text text-center">${mobile.phone_name}</h4>
-                <button id="search-button" onClick="fetch_details('${mobile.slug}' )">details</button>
-            </div>
-        </div>`;
-        phoneShowCase.appendChild(div);
+    if (data.length === 0) {
+        const phoneShowCase = document.getElementById('showcase');
+        phoneShowCase.textContent = "";
+        const h2 = document.createElement('h2');
 
-    });
+        h2.innerText = "sorry your search result not found";
+        h2.classList.add('error');
+
+
+        phoneShowCase.appendChild(h2);
+    }
+    else {
+        const newMobile = data.slice(0, 20);
+        console.log(newMobile[0]);
+        const phoneShowCase = document.getElementById('showcase');
+        phoneShowCase.textContent = "";
+        const cardShow = document.getElementById('card-show');
+        cardShow.innerHTML = ``;
+        newMobile.forEach(mobile => {
+            const div = document.createElement('div');
+            div.classList.add('col')
+            div.innerHTML =
+                `<div class="card">
+                <img src="${mobile.image}" class="card-img-top w-50 pt-3 mx-auto" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title text-center">${mobile.brand}</h3>
+                    <h4 class="card-text text-center">${mobile.phone_name}</h4>
+                    <button id="search-button" onClick="fetch_details('${mobile.slug}' )">details</button>
+                </div>
+            </div>`;
+            phoneShowCase.appendChild(div);
+
+        });
+
+    }
+
 }
