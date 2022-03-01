@@ -57,7 +57,7 @@ const phone_details = (data) => {
     imgContainingDiv.innerHTML = `<img src="${image}" class="img-fluid rounded-start" alt="...">`
     // -------total containing div-----------
     const divTotal = document.createElement('div');
-    divTotal.classList.add('row,g-0');
+    divTotal.classList.add("row", "g-0");
     divTotal.appendChild(imgContainingDiv);
     divTotal.appendChild(bodyContainingDiv);
     // ---------html upload-----------
@@ -69,10 +69,12 @@ const showPhone = (data) => {
     if (data.length === 0) {
         const phoneShowCase = document.getElementById('showcase');
         phoneShowCase.textContent = "";
+        const cardShow = document.getElementById('card-show');
+        cardShow.innerHTML = ``
         const h2 = document.createElement('h2');
 
         h2.innerText = "sorry your search result not found";
-        h2.classList.add('error');
+        h2.classList.add("error");
 
 
         phoneShowCase.appendChild(h2);
